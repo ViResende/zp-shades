@@ -15,10 +15,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="border-b border-gray-200 bg-white" role="navigation" aria-label="Main navigation">
+    <nav className="border-b border-gray-200 bg-white" style={{backgroundColor: '#ffffff', color: '#171717'}} role="navigation" aria-label="Main navigation">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
 
-        <Link href="/" className="text-lg font-semibold tracking-wide" aria-label="ZP Shades — home">
+        <Link href="/" className="text-lg font-semibold tracking-wide text-gray-900" style={{color: '#171717'}} aria-label="ZP Shades — home">
           ZP SHADES
         </Link>
 

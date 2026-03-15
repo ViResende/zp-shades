@@ -94,7 +94,7 @@ export default function Book() {
             <AnimatedSection delay={0} className="h-full">
       <button
         onClick={() => setBookingType("installation")}
-        className="border border-gray-200 p-8 text-left hover:border-black transition-all duration-200 group w-full h-full"
+       className="border border-gray-200 p-8 text-left hover:border-black transition-all duration-200 group w-full h-full bg-white" style={{backgroundColor: '#ffffff', color: '#171717'}}
               >
                 <p className="text-xs tracking-widest uppercase text-gray-400 mb-3">Service</p>
                 <h2 className="text-xl font-semibold mb-3 group-hover:text-gray-700 transition-colors">
