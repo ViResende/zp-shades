@@ -170,10 +170,13 @@ export default function Home() {
             </AnimatedSection>
           </div>
           <div className="mt-8 sm:hidden">
-  <Link href="/gallery" className="text-xs tracking-widest uppercase border-b border-black pb-0.5 text-black" style={{color: '#000000'}}>
-    View all
-  </Link>
-</div>
+            <Link
+              href="/gallery"
+              className="text-xs tracking-widest uppercase border-b border-black pb-0.5"
+            >
+              View all
+            </Link>
+          </div>
         </div>
       </section>
 
