@@ -4,16 +4,18 @@ import Link from "next/link";
 import AnimatedSection from "./components/AnimatedSection";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zpshades.com"),
+
   title: "Shade, Drapery & Window Treatment Installation Seattle | ZP Shades",
   description:
     "Professional window shade and drapery installation in Seattle, Bellevue, Kirkland, Mercer Island, Bainbridge Island, and North Bend. Roller shades, motorized systems, zebra shades, drapery, and more. Call (929) 471-2067.",
   keywords:
     "shade installation Seattle, drapery installation Seattle, motorized shades Seattle, window treatment installer Seattle, roller shades Seattle, blind installation Seattle",
+
   openGraph: {
     title: "ZP Shades — Window Treatment Installation Seattle",
     description:
       "Professional shade and drapery installation across Seattle and the Puget Sound area.",
-    url: "https://zpshades.com",
     siteName: "ZP Shades",
     images: [
       {
