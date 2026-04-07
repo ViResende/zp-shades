@@ -6,6 +6,10 @@ import AnimatedSection from "./components/AnimatedSection";
 export const metadata: Metadata = {
   metadataBase: new URL("https://zpshades.com"),
 
+    icons: {
+    icon: "/favicon.png",
+  },
+
   title: "Shade, Drapery & Window Treatment Installation Seattle | ZP Shades",
   description:
     "Professional window shade and drapery installation in Seattle, Bellevue, Kirkland, Mercer Island, Bainbridge Island, and North Bend. Roller shades, motorized systems, zebra shades, drapery, and more. Call (929) 471-2067.",
