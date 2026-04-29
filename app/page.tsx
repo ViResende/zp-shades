@@ -6,9 +6,6 @@ import AnimatedSection from "./components/AnimatedSection";
 export const metadata: Metadata = {
   metadataBase: new URL("https://zpshades.com"),
 
-    icons: {
-    icon: "/favicon.png",
-  },
 
   title: "Shade, Drapery & Window Treatment Installation Seattle | ZP Shades",
   description:
@@ -23,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "ZP Shades",
     images: [
       {
-        url: "/images/hero.webp",
+        url: "/images/heroimage.webp",
         width: 1200,
         height: 630,
         alt: "Professional shade installation by ZP Shades in Seattle",
@@ -39,43 +36,43 @@ export default function Home() {
     <div>
 
       {/* Hero */}
-      <section aria-labelledby="hero-heading" className="relative w-full h-[85vh] min-h-[560px]">
-        <Image
-          src="/images/hero.webp"
-          alt="ZP Shades installer mounting window shades in a Seattle home"
-          fill
-          priority
-          className="object-cover object-[50%_20%]"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col justify-center px-6 pb-20 max-w-6xl mx-auto">
-          <h1
-            id="hero-heading"
-            className="text-4xl md:text-6xl text-white tracking-wide max-w-2xl leading-tight mb-6 animate-fade-in-up"
-          >
-            Professional Shade & Drapery Installation in Seattle
-          </h1>
-          <p className="text-gray-300 text-sm max-w-md mb-8 animate-fade-in-up animate-delay-100">
-            Professional installation for roller shades, motorized systems, drapery, and more. Serving Seattle and the Puget Sound area.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-200">
-            <Link
-              href="/book"
-              className="inline-block bg-white text-black px-8 py-4 text-xs tracking-widest uppercase hover:bg-gray-100 transition-colors"
-              aria-label="Book a shade installation service"
-            >
-              Book a Service
-            </Link>
-            <Link
-              href="/services"
-              className="inline-block border border-white text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
-              aria-label="View all window treatment services"
-            >
-              View Services
-            </Link>
-          </div>
-        </div>
-      </section>
+<section aria-labelledby="hero-heading" className="relative w-full h-screen min-h-[580px]">
+  <Image
+    src="/images/heroimage.webp"
+    alt="ZP Shades installer mounting window shades in a Seattle home"
+    fill
+    priority
+    className="object-cover object-[50%_45%]"
+  />
+  <div className="absolute inset-0 bg-black/40" />
+  <div className="absolute inset-0 flex flex-col justify-center px-6 pb-16 w-full max-w-6xl mx-auto">
+    <h1
+      id="hero-heading"
+      className="text-4xl md:text-6xl text-white tracking-wide max-w-2xl leading-tight mb-6 animate-fade-in-up"
+    >
+      Professional Shade & Drapery Installation in Seattle
+    </h1>
+    <p className="text-gray-300 text-sm max-w-md mb-8 animate-fade-in-up animate-delay-100">
+      Professional installation for roller shades, motorized systems, drapery, and more. Serving Seattle and the Puget Sound area.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-200">
+      <Link
+        href="/book"
+        className="inline-block bg-white text-black px-8 py-4 text-xs tracking-widest uppercase hover:bg-gray-100 transition-colors"
+        aria-label="Book a shade installation service"
+      >
+        Book a Service
+      </Link>
+      <Link
+        href="/services"
+        className="inline-block border border-white text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
+        aria-label="View all window treatment services"
+      >
+        View Services
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* Services strip */}
       <section aria-labelledby="services-heading" className="bg-black text-white py-16 px-6">
