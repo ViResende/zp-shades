@@ -38,7 +38,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "ZP Shades",
-              "image": "https://zpshades.com/images/hero.webp",
+              "image": "https://zpshades.com/images/heroimage.webp",
               "telephone": "+1-929-471-2067",
               "areaServed": "Puget Sound",
               "address": {

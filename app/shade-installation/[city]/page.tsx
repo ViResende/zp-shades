@@ -2,109 +2,231 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-const cities: Record<string, {
+
+type CityData = {
   name: string;
   neighborhoods: string[];
   description: string;
   extra: string;
-}> = {
+  localHighlight: string;
+};
+
+const cities: Record<string, CityData> = {
   seattle: {
     name: "Seattle",
-    neighborhoods: ["Capitol Hill", "Ballard", "Queen Anne", "Fremont", "West Seattle"],
+    neighborhoods: [
+      "Capitol Hill",
+      "Ballard",
+      "Queen Anne",
+      "Fremont",
+      "West Seattle",
+    ],
     description:
-      "ZP Shades provides professional window shade and drapery installation services throughout Seattle, Washington. We install roller shades, solar shades, blackout shades, zebra shades, cellular shades, and motorized window treatments for homes and businesses across the city.",
+      "ZP Shades provides professional installation for customer-provided shades, blinds, drapery, shutters, and motorized systems throughout Seattle, Washington.",
     extra:
-      "From modern condos in Capitol Hill to craftsman homes in Ballard and Queen Anne, we handle every installation with precision and care. Whether you purchased your shades online, from a designer, or a local retailer, we ensure a clean, professional result.",
+      "Seattle properties range from downtown condos with large modern windows to older craftsman homes in Ballard, Queen Anne, and West Seattle. We handle each installation based on the window, mounting surface, and product requirements to ensure a secure and professional result.",
+    localHighlight:
+      "Whether you need motorized shades installed in a modern condo, roller shades in a residential home, or drapery mounted in a commercial space, ZP Shades provides professional installation without requiring you to purchase new window treatments.",
+
   },
+
   bellevue: {
     name: "Bellevue",
-    neighborhoods: ["Downtown Bellevue", "West Bellevue", "Bridle Trails", "Somerset"],
+    neighborhoods: [
+      "Downtown Bellevue",
+      "West Bellevue",
+      "Bridle Trails",
+      "Somerset",
+    ],
     description:
-      "ZP Shades offers professional shade and drapery installation services in Bellevue, Washington. We specialize in motorized shades, roller shades, zebra shades, solar shades, and custom drapery systems for residential and commercial properties.",
+      "ZP Shades provides professional window treatment installation throughout Bellevue, Washington, including shades, blinds, drapery, shutters, and motorized systems.",
     extra:
-      "From luxury homes in West Bellevue to modern offices in Downtown Bellevue, we deliver precise installations that look and function perfectly. We work with all major brands including Hunter Douglas, Lutron, and The Shade Store.",
+      "Bellevue projects often include modern condos, offices, and larger residential properties. We focus on clean mounting, precise alignment, and reliable operation for both residential and commercial installations.",
+    localHighlight:
+      "If you already purchased your window treatments and need an experienced installer, ZP Shades provides installation support throughout Bellevue without the pressure to purchase new products.",
+   
   },
+
   redmond: {
     name: "Redmond",
-    neighborhoods: ["Downtown Redmond", "Education Hill", "Overlake", "Willows"],
+    neighborhoods: [
+      "Downtown Redmond",
+      "Education Hill",
+      "Overlake",
+      "Willows",
+    ],
     description:
-      "ZP Shades provides expert shade and drapery installation in Redmond, Washington. We install roller shades, motorized systems, cellular shades, drapery rods, and curtain tracks for homes and businesses throughout Redmond.",
+      "ZP Shades offers professional shade, blind, drapery, shutter, and motorized window treatment installation throughout Redmond, Washington.",
     extra:
-      "Serving neighborhoods from Overlake to Education Hill, we bring professional-grade installation directly to your location. No need to haul your window treatments anywhere — we come to you and handle everything on site.",
+      "From newer homes in Overlake to established neighborhoods around Education Hill, we provide clean, professional installation directly at your property.",
+    localHighlight:
+      "We help homeowners and businesses in Redmond install window treatments they already purchased, including single-room projects, whole-home installations, and motorized systems.",
+  
   },
+
   kirkland: {
     name: "Kirkland",
-    neighborhoods: ["Downtown Kirkland", "Juanita", "Bridle Trails", "Totem Lake"],
+    neighborhoods: [
+      "Downtown Kirkland",
+      "Juanita",
+      "Bridle Trails",
+      "Totem Lake",
+    ],
     description:
-      "ZP Shades delivers professional window treatment installation services in Kirkland, Washington. From roller shades and zebra shades to motorized systems and custom drapery, we handle all types of installations for Kirkland homes and businesses.",
+      "ZP Shades provides professional installation for customer-provided window treatments throughout Kirkland, Washington.",
     extra:
-      "Whether you live near the waterfront in Downtown Kirkland or in the neighborhoods of Juanita and Totem Lake, our installers bring the same level of precision and professionalism to every job.",
+      "Kirkland homes and businesses range from waterfront properties to modern developments around Totem Lake and established neighborhoods in Juanita. We bring the same attention to detail to every project.",
+    localHighlight:
+      "Our installation service is ideal for customers who already have their shades, blinds, drapery, shutters, or motorized systems and want them installed correctly and securely.",
+    
   },
+
   "mercer-island": {
     name: "Mercer Island",
-    neighborhoods: ["First Hill", "Island Crest", "North End", "East Seattle"],
+    neighborhoods: [
+      "First Hill",
+      "Island Crest",
+      "North End",
+      "East Seattle",
+    ],
     description:
-      "ZP Shades provides premium shade and drapery installation on Mercer Island, Washington. We specialize in motorized shades, solar shades, blackout systems, and custom drapery for the island's residential and waterfront properties.",
+      "ZP Shades provides professional shade, drapery, blind, shutter, and motorized system installation throughout Mercer Island, Washington.",
     extra:
-      "Mercer Island homes often feature large windows with stunning views, our solar shades and motorized systems are perfect for light control without sacrificing the scenery. We handle every install with care and precision.",
+      "Mercer Island properties often feature large windows and open views, making precise installation especially important. We install customer-provided window treatments with careful attention to alignment, mounting, privacy, and light control.",
+    localHighlight:
+      "Whether your project involves large roller shades, motorized systems, or custom drapery, we provide professional installation for homes throughout Mercer Island.",
+   
   },
+
   renton: {
     name: "Renton",
-    neighborhoods: ["Downtown Renton", "Highlands", "Kennydale", "Cascade"],
+    neighborhoods: [
+      "Downtown Renton",
+      "Highlands",
+      "Kennydale",
+      "Cascade",
+    ],
     description:
-      "ZP Shades offers professional shade and drapery installation throughout Renton, Washington. We install roller shades, roman shades, blinds, motorized systems, and drapery for residential homes and commercial spaces in Renton.",
+      "ZP Shades provides professional window treatment installation throughout Renton, Washington.",
     extra:
-      "From the Highlands to Kennydale and Downtown Renton, we serve the entire area with fast scheduling and clean, professional installs. Already bought your shades? We handle everything from there.",
+      "We serve homes, apartments, rental properties, offices, and commercial spaces across Renton, including Kennydale, the Highlands, and surrounding neighborhoods.",
+    localHighlight:
+      "Already purchased your shades, blinds, drapery, shutters, or motorized systems? We handle the installation so you do not have to manage complicated mounting or alignment yourself.",
+  
   },
+
   tacoma: {
     name: "Tacoma",
-    neighborhoods: ["Downtown Tacoma", "North End", "Stadium District", "Proctor"],
+    neighborhoods: [
+      "Downtown Tacoma",
+      "North End",
+      "Stadium District",
+      "Proctor",
+    ],
     description:
-      "ZP Shades provides professional window shade and drapery installation services in Tacoma, Washington. We install all types of window treatments including roller shades, zebra shades, cellular shades, motorized systems, and custom drapery.",
+      "ZP Shades provides professional shade, blind, drapery, shutter, and motorized window treatment installation throughout Tacoma, Washington.",
     extra:
-      "Serving historic homes in the Stadium District, craftsman properties in the North End, and modern spaces throughout Downtown Tacoma, we ensure every installation is perfectly measured, level, and professionally finished.",
+      "Tacoma includes historic homes, craftsman properties, apartments, offices, and newer developments. We adjust our installation approach based on the property, mounting surface, and type of window treatment.",
+    localHighlight:
+      "Our goal is a clean, secure installation that looks professional and operates correctly, whether you are installing a single window treatment or completing a larger project.",
+   
   },
+
   "bainbridge-island": {
     name: "Bainbridge Island",
-    neighborhoods: ["Winslow", "Rolling Bay", "Lynwood Center"],
+    neighborhoods: [
+      "Winslow",
+      "Rolling Bay",
+      "Lynwood Center",
+    ],
     description:
-      "ZP Shades offers expert shade and drapery installation on Bainbridge Island, Washington. We specialize in solar shades, motorized window treatments, roller shades, and custom drapery for island homes and waterfront properties.",
+      "ZP Shades provides professional window treatment installation throughout Bainbridge Island, Washington.",
     extra:
-      "Bainbridge Island homes enjoy beautiful natural light and scenic views — our solar shades and motorized systems let you control light and privacy without losing what makes island living special.",
+      "Island homes often feature large windows, natural light, and scenic views. We install customer-provided shades, drapery, shutters, and motorized systems with attention to light control, privacy, and proper mounting.",
+    localHighlight:
+      "We travel to Bainbridge Island for residential and larger installation projects, helping customers complete their window treatments without needing to purchase new products through an installation company.",
+    
   },
+
   issaquah: {
     name: "Issaquah",
-    neighborhoods: ["Downtown Issaquah", "Talus", "Squak Mountain", "South Cove"],
+    neighborhoods: [
+      "Downtown Issaquah",
+      "Talus",
+      "Squak Mountain",
+      "South Cove",
+    ],
     description:
-      "ZP Shades provides professional shade and drapery installation throughout Issaquah, Washington. We install roller shades, cellular shades, roman shades, motorized systems, and drapery for homes and businesses in Issaquah.",
+      "ZP Shades provides professional window treatment installation throughout Issaquah, Washington.",
     extra:
-      "From newer construction homes in Talus to established neighborhoods near Downtown Issaquah, we bring fast scheduling and clean installations directly to your door. No hassle, no guesswork.",
+      "From newer homes in Talus to established properties around Downtown Issaquah and Squak Mountain, we install customer-provided window treatments with precise mounting and a clean finish.",
+    localHighlight:
+      "Our installation-only service is ideal if you already purchased your shades, blinds, drapery, shutters, or motorized system and want a professional to complete the project.",
+ 
   },
+
   "north-bend": {
     name: "North Bend",
-    neighborhoods: ["Downtown North Bend", "Tanner", "Wilderness Rim", "Cedar Falls"],
+    neighborhoods: [
+      "Downtown North Bend",
+      "Tanner",
+      "Wilderness Rim",
+      "Cedar Falls",
+    ],
     description:
-      "ZP Shades offers professional window treatment installation in North Bend, Washington. We install roller shades, blackout shades, solar shades, motorized systems, and custom drapery for North Bend homes and properties.",
+      "ZP Shades provides professional window treatment installation throughout North Bend, Washington.",
     extra:
-      "North Bend homes often feature large windows to take in the surrounding mountain scenery. Our solar shades and motorized window systems are ideal for light management while keeping those stunning views intact.",
+      "North Bend homes often feature large windows designed to take advantage of mountain views and natural light. We install window treatments carefully so they operate smoothly while maintaining a clean, finished appearance.",
+    localHighlight:
+      "We install customer-provided roller shades, blackout shades, solar shades, drapery, blinds, and motorized systems for homes throughout North Bend and surrounding communities.",
+    
   },
+
   sammamish: {
     name: "Sammamish",
-    neighborhoods: ["Plateau", "East Lake Sammamish", "Klahanie"],
+    neighborhoods: [
+      "Sammamish Plateau",
+      "East Lake Sammamish",
+      "Klahanie",
+    ],
     description:
-      "ZP Shades provides professional shade and drapery installation throughout Sammamish, Washington. We install roller shades, zebra shades, motorized systems, cellular shades, and custom drapery for Sammamish homes and businesses.",
+      "ZP Shades provides professional window treatment installation throughout Sammamish, Washington.",
     extra:
-      "Sammamish is one of the fastest growing communities in the region — whether you are in a new build on the Plateau or an established home near East Lake Sammamish, we deliver precise, professional results every time.",
+      "Sammamish includes newer construction, larger residential properties, and established neighborhoods around the lake and plateau. We provide precise installation for a wide range of window treatment systems.",
+    localHighlight:
+      "Whether your project involves a few windows or a full-home installation, we provide dependable service for customer-provided window treatments throughout Sammamish.",
+  
   },
+
   puyallup: {
     name: "Puyallup",
-    neighborhoods: ["Downtown Puyallup", "South Hill", "Frederickson"],
+    neighborhoods: [
+      "Downtown Puyallup",
+      "South Hill",
+      "Frederickson",
+    ],
     description:
-      "ZP Shades offers professional window shade and drapery installation in Puyallup, Washington. We install roller shades, roman shades, blinds, motorized systems, and drapery for residential and commercial properties throughout Puyallup.",
+      "ZP Shades provides professional window treatment installation throughout Puyallup, Washington.",
     extra:
-      "From South Hill to Downtown Puyallup and Frederickson, we serve the entire area with clean, professional installations. Already purchased your shades? Just book a service and we will take care of everything.",
+      "We serve residential homes, apartments, rental properties, and commercial spaces throughout Puyallup, South Hill, and surrounding neighborhoods.",
+    localHighlight:
+      "If you have already purchased your window treatments, we can handle the installation from there, including shades, blinds, drapery, shutters, and motorized systems.",
+   
   },
 };
+
+const services = [
+  "Roller Shades",
+  "Zebra Shades",
+  "Solar Shades",
+  "Cellular Shades",
+  "Roman Shades",
+  "Blinds",
+  "Motorized Systems",
+  "Drapery & Curtains",
+  "Shutters",
+  "Curtain Rods & Tracks",
+];
 
 export async function generateStaticParams() {
   return Object.keys(cities).map((city) => ({ city }));
@@ -117,14 +239,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { city: citySlug } = await params;
   const city = cities[citySlug];
+
   if (!city) return {};
+
+  const canonicalUrl = `https://zpshades.com/shade-installation/${citySlug}`;
+
   return {
-    title: `Shade Installation in ${city.name} WA | ZP Shades`,
-    description: `Professional shade and drapery installation in ${city.name}, Washington. Roller shades, motorized systems, zebra shades, drapery, and more. Call (929) 471-2067.`,
+    title: `Shade & Window Treatment Installation in ${city.name}, WA | ZP Shades`,
+    description: `Professional installation for customer-provided shades, blinds, drapery, shutters, and motorized systems in ${city.name}, WA. Book installation with ZP Shades.`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: `Shade Installation in ${city.name} | ZP Shades`,
-      description: `Professional window treatment installation in ${city.name}, WA. Serving ${city.neighborhoods.join(", ")}.`,
-      url: `https://zpshades.com/shade-installation/${citySlug}`,
+      title: `Window Treatment Installation in ${city.name}, WA | ZP Shades`,
+      description: `Professional installation for customer-provided window treatments in ${city.name}, Washington.`,
+      url: canonicalUrl,
       siteName: "ZP Shades",
       locale: "en_US",
       type: "website",
@@ -132,113 +261,170 @@ export async function generateMetadata({
   };
 }
 
-export default async function CityPage({ params }: { params: Promise<{ city: string }> }) {
+export default async function CityPage({
+  params,
+}: {
+  params: Promise<{ city: string }>;
+}) {
   const { city: citySlug } = await params;
   const city = cities[citySlug];
+
   if (!city) notFound();
 
   return (
     <div>
       {/* Hero */}
-      <div className="bg-black text-white py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">
+      <section className="bg-black px-6 py-20 text-white">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-4 text-xs uppercase tracking-widest text-gray-400">
             ZP Shades · {city.name}, WA
           </p>
-          <h1 className="text-4xl tracking-wide mb-4">
-            Professional Shade Installation in {city.name}
+
+          <h1 className="mb-5 max-w-3xl text-4xl tracking-wide md:text-5xl">
+            Professional Window Treatment Installation in {city.name}
           </h1>
-          <p className="text-gray-400 max-w-xl">
+
+          <p className="max-w-2xl text-sm leading-relaxed text-gray-400">
             Serving {city.neighborhoods.join(", ")}, and surrounding areas.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/book"
-              className="inline-block bg-white text-black px-8 py-4 text-xs tracking-widest uppercase hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white px-8 py-4 text-center text-xs uppercase tracking-widest text-black transition-colors hover:bg-gray-100"
             >
               Book Installation
             </Link>
+
             <Link
               href="/contact"
-              className="inline-block border border-white text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
+              className="inline-block border border-white px-8 py-4 text-center text-xs uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-black"
             >
               Contact Us
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Content */}
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main>
+        {/* Intro + services */}
+        <section className="px-6 py-20">
+          <div className="mx-auto grid max-w-5xl gap-14 md:grid-cols-2">
+            <div>
+              <p className="mb-4 text-xs uppercase tracking-widest text-gray-400">
+                Local installation
+              </p>
 
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          <div>
-            <h2 className="text-2xl tracking-wide mb-6">
-              Shade & Drapery Installation in {city.name}
-            </h2>
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-              {city.description}
-            </p>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              {city.extra}
-            </p>
-          </div>
-          <div className="space-y-4">
-            {[
-              "Roller Shades",
-              "Zebra Shades",
-              "Solar Shades",
-              "Cellular Shades",
-              "Roman Shades",
-              "Motorized Systems",
-              "Drapery & Curtains",
-              "Curtain Rods & Tracks",
-            ].map((service) => (
-              <div
-                key={service}
-                className="border-t border-gray-200 pt-4 text-sm font-medium"
-              >
-                {service}
+              <h2 className="mb-6 text-3xl tracking-wide">
+                Shade & Window Treatment Installation in {city.name}
+              </h2>
+
+              <p className="mb-5 text-sm leading-relaxed text-gray-600">
+                {city.description}
+              </p>
+
+              <p className="text-sm leading-relaxed text-gray-600">
+                {city.extra}
+              </p>
+            </div>
+
+            <div>
+              <p className="mb-5 text-xs uppercase tracking-widest text-gray-400">
+                What we install
+              </p>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {services.map((service) => (
+                  <div
+                    key={service}
+                    className="border border-gray-200 bg-white p-4 text-sm font-medium"
+                  >
+                    {service}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Neighborhoods */}
-        <div className="border-t border-gray-200 pt-12 mb-16">
-          <h2 className="text-2xl tracking-wide mb-6">
-            Areas We Serve in {city.name}
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {city.neighborhoods.map((n) => (
-              <div
-                key={n}
-                className="border border-gray-200 p-4 text-sm font-medium"
+              <Link
+                href="/services"
+                className="mt-8 inline-block border-b border-black pb-0.5 text-xs uppercase tracking-widest"
               >
-                {n}
-              </div>
-            ))}
+                View all services
+              </Link>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Why local */}
+        <section className="bg-[#F5F3EF] px-6 py-16">
+          <div className="mx-auto max-w-5xl">
+            <div className="max-w-3xl">
+              <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
+                Why ZP Shades
+              </p>
+
+              <h2 className="mb-5 text-3xl tracking-wide">
+                Professional installation for products you already purchased
+              </h2>
+
+              <p className="text-sm leading-relaxed text-gray-600">
+                {city.localHighlight}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Service Areas */}
+<section className="border-t border-gray-100 px-6 py-10">
+  <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <p className="text-sm text-gray-600">
+      Serving {city.name} and communities throughout the Puget Sound area.
+    </p>
+
+    <Link
+      href="/service-areas"
+      className="text-xs uppercase tracking-widest transition-opacity hover:opacity-60"
+    >
+      View All Service Areas →
+    </Link>
+  </div>
+</section>
+
 
         {/* CTA */}
-        <div className="bg-stone-50 p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl tracking-wide mb-2">
-              Ready to book in {city.name}?
-            </h2>
-            <p className="text-gray-500 text-sm">
-              Fast scheduling, clean work, done right the first time.
-            </p>
-          </div>
-          <Link
-            href="/book"
-            className="shrink-0 inline-block bg-black text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-gray-900 transition-colors"
-          >
-            Book a Service
-          </Link>
-        </div>
+        <section className="bg-[#F5F3EF] px-6 py-16">
+          <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div>
+              <p className="mb-3 text-xs uppercase tracking-widest text-gray-500">
+                Ready to get started?
+              </p>
 
+              <h2 className="mb-3 text-3xl tracking-wide">
+                Book your installation in {city.name}
+              </h2>
+
+              <p className="max-w-xl text-sm leading-relaxed text-gray-600">
+                Tell us what you purchased, how many windows you have, and where
+                the project is located.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/book"
+                className="inline-block bg-black px-8 py-4 text-center text-xs uppercase tracking-widest text-white transition-colors hover:bg-gray-900"
+              >
+                Book Installation
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-block border border-black px-8 py-4 text-center text-xs uppercase tracking-widest text-black transition-colors hover:bg-black hover:text-white"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

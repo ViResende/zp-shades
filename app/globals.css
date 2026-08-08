@@ -58,3 +58,70 @@ body {
 .text-xs {
   font-size: 14px !important;
 }
+
+.brand-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.brand-marquee::before,
+.brand-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 80px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.brand-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #eef4f7, transparent);
+}
+
+.brand-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #eef4f7, transparent);
+}
+
+.brand-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  padding: 8px 0;
+  animation: brand-scroll-right 28s linear infinite;
+}
+
+.brand-marquee:hover .brand-marquee-track {
+  animation-play-state: paused;
+}
+
+.brand-logo-card {
+  display: flex;
+  width: 220px;
+  height: 110px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(88, 112, 124, 0.18);
+  background: white;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(30, 50, 60, 0.06);
+}
+
+@keyframes brand-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee-track {
+    animation: none;
+  }
+}

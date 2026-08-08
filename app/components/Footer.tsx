@@ -2,61 +2,81 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 py-12">
-      <div className="max-w-6xl mx-auto">
+    <footer className="bg-black px-6 py-10 text-white">
+      <div className="mx-auto max-w-6xl">
 
-        {/* Top row — links and contact */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 pb-10 border-b border-gray-800">
+        <div className="grid gap-10 md:grid-cols-3">
 
-          {/* Quick links */}
+          {/* Brand */}
           <div>
-            <p className="text-xs tracking-widest uppercase text-gray-500 mb-4">Menu</p>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/book" className="hover:text-white transition-colors">Book a Service</Link></li>
-            </ul>
+            <h3 className="text-2xl font-semibold tracking-wide">
+              ZP Shades
+            </h3>
+
+            <p className="mt-3 text-sm text-gray-500">
+              Professional installation, done right.
+            </p>
           </div>
 
           {/* Contact */}
           <div>
-            <p className="text-xs tracking-widest uppercase text-gray-500 mb-4">Contact</p>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <a href="tel:9294712067" className="hover:text-white transition-colors">
-                  (929) 471-2067
-                </a>
-              </li>
-              <li>
-                <a href="mailto:zpshades@gmail.com" className="hover:text-white transition-colors">
-                  zpshades@gmail.com
-                </a>
-              </li>
-              <li>
-                <a href="/contact#contact-form" className="hover:text-white transition-colors">
-                  Send a message
-                </a>
-              </li>
-            </ul>
-          </div>
-
-         {/* Brand */}
-          <div className="hidden md:flex items-start justify-end">
-            <p className="text-4xl font-semibold tracking-widest uppercase text-white opacity-20">
-              ZP Shades
+            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gray-500">
+              Contact
             </p>
+
+            <div className="space-y-3 text-sm text-gray-400">
+              <a
+                href="tel:9294712067"
+                className="block hover:text-white"
+              >
+                (929) 471-2067
+              </a>
+
+              <a
+                href="mailto:zpshades@gmail.com"
+                className="block hover:text-white"
+              >
+                zpshades@gmail.com
+              </a>
+
+              <p>Seattle, Washington</p>
+            </div>
           </div>
 
+          {/* Instagram */}
+          <div>
+            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gray-500">
+              Follow Us
+            </p>
+
+          <a
+  href="https://www.instagram.com/zpshades/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="h-5 w-5"
+    aria-hidden="true"
+  >
+    <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm9.6 2.15a.9.9 0 110 1.8.9.9 0 010-1.8zM12 6.5A5.5 5.5 0 1112 17.5 5.5 5.5 0 0112 6.5zm0 2A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5z" />
+  </svg>
+
+  Instagram
+</a>
+          </div>
         </div>
 
-        {/* Bottom copyright */}
-          <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} ZP Shades. All rights reserved.
-          </p>
+        {/* Bottom */}
+        <div className="mt-8 flex flex-col gap-2 border-t border-gray-800 pt-5 text-xs text-gray-500 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} ZP Shades. All rights reserved.</p>
+          <p>Serving Seattle & Puget Sound</p>
         </div>
 
+      </div>
     </footer>
   );
 }
