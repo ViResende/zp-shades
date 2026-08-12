@@ -4,6 +4,10 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Service Areas — ZP Shades Seattle",
   description: "ZP Shades provides professional shade and drapery installation across Seattle, Bellevue, Kirkland, Redmond, Mercer Island, Bainbridge Island, North Bend, and surrounding areas.",
+
+  alternates: {
+    canonical: "/service-areas",
+  },
 };
 
 const cities = [

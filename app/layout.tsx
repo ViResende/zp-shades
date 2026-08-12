@@ -16,8 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZP Shades",
-  description: "Professional shades & drapery installation",
+  metadataBase: new URL("https://zpshades.com"),
+
+  title: {
+    default: "ZP Shades | Window Treatment Installation",
+    template: "%s | ZP Shades",
+  },
+
+  description:
+    "Professional shade, blind, drapery, shutter, and motorized window treatment installation serving Seattle, Bellevue, and the Puget Sound area.",
+
 };
 
 export default function RootLayout({

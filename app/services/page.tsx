@@ -6,6 +6,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Window Treatment Installation Services Seattle — ZP Shades",
   description: "Professional installation for roller shades, zebra shades, solar shades, shutters, blinds, motorized systems, drapery, and curtain rods across Seattle and the Puget Sound area.",
+
+   alternates: {
+    canonical: "/services",
+  },
 };
 
 const products = [
