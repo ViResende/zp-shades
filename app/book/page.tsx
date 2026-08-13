@@ -42,28 +42,39 @@ export default function Book() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    const templateId =
-      bookingType === "installation"
-        ? INSTALLATION_TEMPLATE_ID
-        : CONSULTATION_TEMPLATE_ID;
-    try {
-await emailjs.send(
-  SERVICE_ID,
-  templateId,
-  form as Record<string, string>,
-  PUBLIC_KEY
-);
+  e.preventDefault();
+  setLoading(true);
 
-setSubmitted(true);
+  const templateId =
+    bookingType === "installation"
+      ? INSTALLATION_TEMPLATE_ID
+      : CONSULTATION_TEMPLATE_ID;
 
-} catch (error) {
-  console.error("EmailJS error:", error);
-  alert("Something went wrong. Please try again or email zpshades@gmail.com");
-} finally {
-  setLoading(false);
-}
+  try {
+    await emailjs.send(
+      SERVICE_ID,
+      templateId,
+      form as Record<string, string>,
+      PUBLIC_KEY
+    );
+
+    if (typeof window !== "undefined" && "gtag" in window) {
+      (
+        window as typeof window & {
+          gtag?: (...args: unknown[]) => void;
+        }
+      ).gtag?.("event", "booking_request_submitted", {
+        booking_type: bookingType,
+      });
+    }
+
+    setSubmitted(true);
+  } catch (error) {
+    console.error("EmailJS error:", error);
+    alert("Something went wrong. Please try again or email zpshades@gmail.com");
+  } finally {
+    setLoading(false);
+  }
 };
 
   if (submitted) {
