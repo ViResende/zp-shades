@@ -49,14 +49,22 @@ export default function Book() {
         ? INSTALLATION_TEMPLATE_ID
         : CONSULTATION_TEMPLATE_ID;
     try {
-      await emailjs.send(SERVICE_ID, templateId, form as Record<string, string>, PUBLIC_KEY);
-      setSubmitted(true);
-    } catch (error) {
-      alert("Something went wrong. Please try again or email zpshades@gmail.com");
-    } finally {
-      setLoading(false);
-    }
-  };
+await emailjs.send(
+  SERVICE_ID,
+  templateId,
+  form as Record<string, string>,
+  PUBLIC_KEY
+);
+
+setSubmitted(true);
+
+} catch (error) {
+  console.error("EmailJS error:", error);
+  alert("Something went wrong. Please try again or email zpshades@gmail.com");
+} finally {
+  setLoading(false);
+}
+};
 
   if (submitted) {
     return (
