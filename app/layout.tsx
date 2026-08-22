@@ -48,6 +48,67 @@ export default function RootLayout({
     gtag('config', 'G-RF416DNCX9');
   `}
         </Script>
+
+
+        <Script id="lead-attribution" strategy="afterInteractive">
+  {`
+    try {
+      const existingSource = sessionStorage.getItem("zp_traffic_source");
+
+      if (!existingSource) {
+        const params = new URLSearchParams(window.location.search);
+        const referrer = document.referrer || "";
+
+        const utmSource = params.get("utm_source") || "";
+        const utmMedium = params.get("utm_medium") || "";
+        const utmCampaign = params.get("utm_campaign") || "";
+        const gclid = params.get("gclid") || "";
+
+        let trafficSource = utmSource;
+        let trafficMedium = utmMedium;
+
+        if (!trafficSource) {
+          if (gclid) {
+            trafficSource = "Google";
+            trafficMedium = "paid";
+          } else if (referrer.includes("google.")) {
+            trafficSource = "Google";
+            trafficMedium = "organic";
+          } else if (
+            referrer.includes("instagram.com") ||
+            referrer.includes("l.instagram.com")
+          ) {
+            trafficSource = "Instagram";
+            trafficMedium = "social";
+          } else if (referrer.includes("facebook.com")) {
+            trafficSource = "Facebook";
+            trafficMedium = "social";
+          } else if (referrer.includes("chatgpt.com")) {
+            trafficSource = "ChatGPT";
+            trafficMedium = "ai-assistant";
+          } else if (referrer) {
+            trafficSource = referrer;
+            trafficMedium = "referral";
+          } else {
+            trafficSource = "Direct";
+            trafficMedium = "none";
+          }
+        }
+
+        sessionStorage.setItem("zp_traffic_source", trafficSource);
+        sessionStorage.setItem("zp_traffic_medium", trafficMedium);
+        sessionStorage.setItem("zp_referrer", referrer);
+        sessionStorage.setItem("zp_landing_page", window.location.href);
+        sessionStorage.setItem("zp_utm_source", utmSource);
+        sessionStorage.setItem("zp_utm_medium", utmMedium);
+        sessionStorage.setItem("zp_utm_campaign", utmCampaign);
+      }
+    } catch (error) {
+      console.error("Lead attribution error:", error);
+    }
+  `}
+</Script>
+
         <Script
           id="local-business-schema"
           type="application/ld+json"

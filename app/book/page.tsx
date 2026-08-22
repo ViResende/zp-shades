@@ -45,51 +45,38 @@ export default function Book() {
   });
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+  const trafficSource =
+    sessionStorage.getItem("zp_traffic_source") || "Direct";
 
-    const referrer = document.referrer;
-    const landingPage = window.location.href;
+  const trafficMedium =
+    sessionStorage.getItem("zp_traffic_medium") || "none";
 
-    const utmSource = params.get("utm_source") || "";
-    const utmMedium = params.get("utm_medium") || "";
-    const utmCampaign = params.get("utm_campaign") || "";
+  const referrer =
+    sessionStorage.getItem("zp_referrer") || "";
 
-    let trafficSource = utmSource;
-    let trafficMedium = utmMedium;
+  const landingPage =
+    sessionStorage.getItem("zp_landing_page") || window.location.href;
 
-    if (!trafficSource) {
-      if (referrer.includes("google.")) {
-        trafficSource = "Google";
-        trafficMedium = "organic";
-      } else if (referrer.includes("instagram.com")) {
-        trafficSource = "Instagram";
-        trafficMedium = "social";
-      } else if (referrer.includes("facebook.com")) {
-        trafficSource = "Facebook";
-        trafficMedium = "social";
-      } else if (referrer.includes("chatgpt.com")) {
-        trafficSource = "ChatGPT";
-        trafficMedium = "ai-assistant";
-      } else if (referrer) {
-        trafficSource = referrer;
-        trafficMedium = "referral";
-      } else {
-        trafficSource = "Direct";
-        trafficMedium = "none";
-      }
-    }
+  const utmSource =
+    sessionStorage.getItem("zp_utm_source") || "";
 
-    setForm((current) => ({
-      ...current,
-      traffic_source: trafficSource,
-      traffic_medium: trafficMedium,
-      referrer,
-      landing_page: landingPage,
-      utm_source: utmSource,
-      utm_medium: utmMedium,
-      utm_campaign: utmCampaign,
-    }));
-  }, []);
+  const utmMedium =
+    sessionStorage.getItem("zp_utm_medium") || "";
+
+  const utmCampaign =
+    sessionStorage.getItem("zp_utm_campaign") || "";
+
+  setForm((current) => ({
+    ...current,
+    traffic_source: trafficSource,
+    traffic_medium: trafficMedium,
+    referrer,
+    landing_page: landingPage,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+  }));
+}, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
