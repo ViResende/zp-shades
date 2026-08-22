@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import AnimatedSection from "../components/AnimatedSection";
 
@@ -21,6 +21,7 @@ export default function Book() {
   const [bookingType, setBookingType] = useState<BookingType>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     from_name: "",
     phone: "",
@@ -33,7 +34,62 @@ export default function Book() {
     preferred_date: "",
     preferred_time: "",
     message: "",
+
+    traffic_source: "",
+    traffic_medium: "",
+    referrer: "",
+    landing_page: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    const referrer = document.referrer;
+    const landingPage = window.location.href;
+
+    const utmSource = params.get("utm_source") || "";
+    const utmMedium = params.get("utm_medium") || "";
+    const utmCampaign = params.get("utm_campaign") || "";
+
+    let trafficSource = utmSource;
+    let trafficMedium = utmMedium;
+
+    if (!trafficSource) {
+      if (referrer.includes("google.")) {
+        trafficSource = "Google";
+        trafficMedium = "organic";
+      } else if (referrer.includes("instagram.com")) {
+        trafficSource = "Instagram";
+        trafficMedium = "social";
+      } else if (referrer.includes("facebook.com")) {
+        trafficSource = "Facebook";
+        trafficMedium = "social";
+      } else if (referrer.includes("chatgpt.com")) {
+        trafficSource = "ChatGPT";
+        trafficMedium = "ai-assistant";
+      } else if (referrer) {
+        trafficSource = referrer;
+        trafficMedium = "referral";
+      } else {
+        trafficSource = "Direct";
+        trafficMedium = "none";
+      }
+    }
+
+    setForm((current) => ({
+      ...current,
+      traffic_source: trafficSource,
+      traffic_medium: trafficMedium,
+      referrer,
+      landing_page: landingPage,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+    }));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
