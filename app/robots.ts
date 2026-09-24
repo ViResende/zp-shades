@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://zpshades.com/sitemap.xml",
+    sitemap: "https://www.zpshades.com/sitemap.xml",
   };
 }

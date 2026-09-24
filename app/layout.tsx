@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zpshades.com"),
+  metadataBase: new URL("https://www.zpshades.com"),
 
   title: "ZP Shades | Window Treatment Installation",
 
@@ -117,7 +117,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "ZP Shades",
-              "image": "https://zpshades.com/images/heroimage.webp",
+              "image": "https://www.zpshades.com/images/heroimage.webp",
               "telephone": "+1-929-471-2067",
               "areaServed": "Puget Sound",
               "address": {
