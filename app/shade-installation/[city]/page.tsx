@@ -242,7 +242,7 @@ export async function generateMetadata({
 
   if (!city) return {};
 
-  const canonicalUrl = `https://zpshades.com/shade-installation/${citySlug}`;
+  const canonicalUrl = `https://www.zpshades.com/shade-installation/${citySlug}`;
 
   return {
     title: `Shade & Window Treatment Installation in ${city.name}, WA | ZP Shades`,

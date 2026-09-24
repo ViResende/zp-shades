@@ -52,7 +52,7 @@ const testimonials = [
 ];
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zpshades.com"),
+  metadataBase: new URL("https://www.zpshades.com"),
 
   title: "Window Treatment Installation Seattle | ZP Shades",
 
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "ZP Shades | Window Treatment Installation in Seattle",
     description:
       "Professional installation for customer-provided shades, blinds, drapery, shutters, and motorized systems across Seattle and the Puget Sound area.",
-    url: "https://zpshades.com",
+    url: "https://www.zpshades.com",
     siteName: "ZP Shades",
     images: [
       {
@@ -87,9 +87,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "ZP Shades",
-    url: "https://zpshades.com",
+    url: "https://www.zpshades.com",
     telephone: "+1-929-471-2067",
-    image: "https://zpshades.com/images/heroimage.webp",
+    image: "https://www.zpshades.com/images/heroimage.webp",
     description:
       "Professional installation of customer-provided shades, blinds, drapery, shutters, curtain rods, tracks, and motorized window treatment systems.",
     areaServed: mainServiceAreas.map((area) => area.name),
