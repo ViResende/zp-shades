@@ -70,7 +70,7 @@ export default function Contact() {
                     Phone
                   </p>
                   <a
-                    href="tel:9294712067"
+                    href="tel:4259001524"
                     className="text-lg font-semibold hover:opacity-60 transition-opacity"
                   >
                     (425) 900-1524
