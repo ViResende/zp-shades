@@ -73,7 +73,7 @@ export default function Contact() {
                     href="tel:9294712067"
                     className="text-lg font-semibold hover:opacity-60 transition-opacity"
                   >
-                    (929) 471-2067
+                    (425) 900-1524
                   </a>
                 </div>
                 <div className="border-t border-gray-200 pt-6">

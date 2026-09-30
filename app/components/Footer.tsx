@@ -29,7 +29,7 @@ export default function Footer() {
                 href="tel:9294712067"
                 className="block hover:text-white"
               >
-                (929) 471-2067
+                (425) 900-1524
               </a>
 
               <a
