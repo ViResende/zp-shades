@@ -201,16 +201,26 @@ if (submitted) {
 
 return (
   <div>
-    {/* Dark hero header */}
-    <div className="bg-black text-white py-20 px-4">
-      <div className="max-w-2xl mx-auto">
-        <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">ZP Shades</p>
-        <h1 className="text-4xl tracking-wide mb-4">Book a Service</h1>
-        <p className="text-gray-400 max-w-md">
-          Choose the service you need and we will get back to you to confirm your appointment.
-        </p>
-      </div>
-    </div>
+    <div
+      className="relative bg-cover bg-center text-white py-24 px-4"
+      style={{ backgroundImage: "url('/images/booking-hero.png')" }}
+    >
+  <div className="absolute inset-0 bg-black/55"></div>
+
+  <div className="relative max-w-2xl mx-auto">
+    <p className="text-xs tracking-widest uppercase text-white/70 mb-4">
+      ZP Shades
+    </p>
+
+    <h1 className="text-4xl md:text-5xl tracking-wide mb-4">
+      Book Professional Window Treatment Installation
+    </h1>
+
+    <p className="text-white/80 max-w-xl leading-relaxed">
+      Already have your shades, blinds, or drapery? Let ZP Shades handle the installation.
+    </p>
+  </div>
+</div>
 
 
     <main className="max-w-2xl mx-auto px-4 py-16">
@@ -221,14 +231,14 @@ return (
           <AnimatedSection delay={0} className="h-full">
             <button
               onClick={() => setBookingType("installation")}
-              className="border border-gray-200 p-8 text-left hover:border-black transition-all duration-200 group w-full h-full bg-white" style={{ backgroundColor: '#ffffff', color: '#171717' }}
+              className="border border-black bg-black text-white p-8 text-left hover:bg-gray-900 transition-all duration-200 group w-full h-full"
             >
               <p className="text-xs tracking-widest uppercase text-gray-400 mb-3">Service</p>
               <h2 className="text-xl font-semibold mb-3 group-hover:text-gray-700 transition-colors">
                 Book Installation
               </h2>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                You already have your shades or drapes and need a professional to install them.
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                Already purchased your window treatments? We professionally install shades, blinds, drapery, and motorized systems.
               </p>
               <span className="text-xs tracking-widest uppercase border-b border-black pb-0.5 group-hover:opacity-60 transition-opacity">
                 Select
@@ -239,7 +249,7 @@ return (
           <AnimatedSection delay={150} className="h-full">
             <button
               onClick={() => setBookingType("consultation")}
-              className="border border-black bg-black text-white p-8 text-left hover:bg-gray-900 transition-all duration-200 group w-full h-full"
+              className="border border-gray-200 bg-white text-black p-8 text-left hover:border-black transition-all duration-200 group w-full h-full"
             >
               <p className="text-xs tracking-widest uppercase text-gray-400 mb-3">Service</p>
               <h2 className="text-xl font-semibold mb-3">
