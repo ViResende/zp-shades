@@ -26,7 +26,7 @@ export default function Footer() {
 
             <div className="space-y-3 text-sm text-gray-400">
               <a
-                href="tel:9294712067"
+                href="tel:425-900-1524"
                 className="block hover:text-white"
               >
                 (425) 900-1524

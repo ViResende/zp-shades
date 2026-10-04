@@ -88,7 +88,7 @@ export default function Home() {
     "@type": "ProfessionalService",
     name: "ZP Shades",
     url: "https://www.zpshades.com",
-    telephone: "+1-929-471-2067",
+    telephone: "+1-425-900-1524",
     image: "https://www.zpshades.com/images/heroimage.webp",
     description:
       "Professional installation of customer-provided shades, blinds, drapery, shutters, curtain rods, tracks, and motorized window treatment systems.",

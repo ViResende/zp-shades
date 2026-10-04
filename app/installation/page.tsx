@@ -90,12 +90,12 @@ export default function InstallationLandingPage() {
                                 Get an Installation Quote
                             </a>
 
-                            <Link
-                                href="/gallery"
+                            <a
+                                href="tel:4259001524"
                                 className="border border-white/60 px-8 py-4 text-xs font-medium uppercase tracking-[0.18em] text-white transition hover:bg-white hover:text-black"
                             >
-                                View Our Work
-                            </Link>
+                                Call (425) 900-1524
+                            </a>
                         </div>
 
                         <p className="mt-6 text-xs text-white/60">
