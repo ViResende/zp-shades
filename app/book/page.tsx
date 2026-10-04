@@ -204,13 +204,14 @@ return (
     <div>
 <div className="relative overflow-hidden text-white py-24 px-4">
   <Image
-    src="/images/booking-hero.webp"
-    alt="Professional window treatment installation by ZP Shades"
-    fill
-    priority
-    sizes="100vw"
-    className="object-cover object-center"
-  />
+  src="/images/booking-hero.webp"
+  alt="Professional window treatment installation by ZP Shades"
+  fill
+  priority
+  fetchPriority="high"
+  sizes="100vw"
+  className="object-cover object-center"
+/>
 
   <div className="absolute inset-0 bg-black/55" />
 
