@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import AnimatedSection from "../components/AnimatedSection";
@@ -200,14 +201,20 @@ if (submitted) {
 }
 
 return (
-  <div>
-    <div
-      className="relative bg-cover bg-center text-white py-24 px-4"
-      style={{ backgroundImage: "url('/images/booking-hero.png')" }}
-    >
-  <div className="absolute inset-0 bg-black/55"></div>
+    <div>
+<div className="relative overflow-hidden text-white py-24 px-4">
+  <Image
+    src="/images/booking-hero.webp"
+    alt="Professional window treatment installation by ZP Shades"
+    fill
+    priority
+    sizes="100vw"
+    className="object-cover object-center"
+  />
 
-  <div className="relative max-w-2xl mx-auto">
+  <div className="absolute inset-0 bg-black/55" />
+
+  <div className="relative z-10 max-w-2xl mx-auto">
     <p className="text-xs tracking-widest uppercase text-white/70 mb-4">
       ZP Shades
     </p>
