@@ -53,16 +53,28 @@ export default function InstallationLeadForm() {
       );
 
       if (typeof window !== "undefined" && "gtag" in window) {
-        (
-          window as typeof window & {
-            gtag?: (...args: unknown[]) => void;
-          }
-        ).gtag?.("event", "booking_request_submitted", {
-          booking_type: "installation_landing_page",
-        });
-      }
+  (
+    window as typeof window & {
+      gtag?: (...args: unknown[]) => void;
+    }
+  ).gtag?.("event", "booking_request_submitted", {
+    booking_type: "installation_landing_page",
+  });
+}
 
-      setSubmitted(true);
+if (typeof window !== "undefined" && "oaiq" in window) {
+  (
+    window as typeof window & {
+      oaiq?: (...args: unknown[]) => void;
+    }
+  ).oaiq?.(
+    "measure",
+    "lead_created",
+    { type: "customer_action" }
+  );
+}
+
+setSubmitted(true);
     } catch (error) {
       console.error("EmailJS error:", error);
       alert(
