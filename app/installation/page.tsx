@@ -8,8 +8,8 @@ export const metadata: Metadata = {
     description:
         "Professional installation for customer-provided shades, blinds, drapery, shutters, curtain tracks, and motorized window treatments in the Seattle area.",
     robots: {
-        index: false,
-        follow: false,
+        index: true,
+        follow: true,
     },
 };
 
