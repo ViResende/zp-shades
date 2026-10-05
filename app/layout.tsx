@@ -40,15 +40,37 @@ export default function RootLayout({
   strategy="afterInteractive"
 />
 
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-RF416DNCX9');
   `}
-        </Script>
+</Script>
 
+<Script id="openai-ads-pixel" strategy="afterInteractive">
+  {`
+    !function(w,d,s,u){
+      if(w.oaiq)return;
+      var q=function(){q.q.push(arguments)};
+      q.q=[];
+      w.oaiq=q;
+      var j=d.createElement(s);
+      j.async=1;
+      j.src=u;
+      var f=d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(j,f)
+    }(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+
+    oaiq("init",{
+      pixelId:"ShFKYNpPKZrPMeYV6LgC3g",
+      debug:true
+    });
+  `}
+</Script>
 
         <Script id="lead-attribution" strategy="afterInteractive">
   {`

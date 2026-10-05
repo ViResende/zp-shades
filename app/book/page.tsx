@@ -116,16 +116,28 @@ export default function Book() {
       );
 
       if (typeof window !== "undefined" && "gtag" in window) {
-        (
-          window as typeof window & {
-            gtag?: (...args: unknown[]) => void;
-          }
-        ).gtag?.("event", "booking_request_submitted", {
-          booking_type: bookingType,
-        });
-      }
+  (
+    window as typeof window & {
+      gtag?: (...args: unknown[]) => void;
+    }
+  ).gtag?.("event", "booking_request_submitted", {
+    booking_type: bookingType,
+  });
+}
 
-      setSubmitted(true);
+if (typeof window !== "undefined" && "oaiq" in window) {
+  (
+    window as typeof window & {
+      oaiq?: (...args: unknown[]) => void;
+    }
+  ).oaiq?.(
+    "measure",
+    "lead_created",
+    { type: "customer_action" }
+  );
+}
+
+setSubmitted(true);
     } catch (error) {
       console.error("EmailJS error:", error);
       alert("Something went wrong. Please try again or email zpshades@gmail.com");
