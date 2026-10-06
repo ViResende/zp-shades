@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const services = [
-    "Shades",
+    "Shades & Cellular Shades",
     "Blinds",
     "Drapery & Curtains",
     "Motorized Shades",
@@ -48,6 +48,7 @@ const serviceAreas = [
 export default function InstallationLandingPage() {
     return (
         <main className="bg-white text-black">
+
             {/* HERO */}
             <section className="relative min-h-[560px] overflow-hidden text-white">
                 <Image
@@ -132,43 +133,8 @@ export default function InstallationLandingPage() {
                 </div>
             </section>
 
-            {/* WHAT WE INSTALL */}
-            <section className="px-6 py-20">
-                <div className="mx-auto max-w-5xl">
-                    <div className="text-center">
-                        <p className="text-xs uppercase tracking-[0.25em] text-gray-400">
-                            What We Install
-                        </p>
-
-                        <h2 className="mt-4 text-3xl tracking-tight md:text-4xl">
-                            You Buy It. We Install It.
-                        </h2>
-
-                        <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-600 md:text-base">
-                            Skip the stress of installation. ZP Shades handles the mounting,
-                            alignment, and setup of your customer-provided window treatments.
-                        </p>
-                    </div>
-
-                    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {services.map((service) => (
-                            <div
-                                key={service}
-                                className="group border border-[#E7DDCF] bg-[#FAF7F2] px-6 py-8 text-center transition duration-300 hover:-translate-y-1 hover:shadow-md"
-                            >
-                                <div className="mx-auto mb-4 h-px w-8 bg-[#A8864A]" />
-
-                                <p className="text-sm font-medium tracking-wide text-gray-900">
-                                    {service}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* RECENT INSTALLATIONS */}
-            <section className="bg-white px-6 pb-20">
+            <section className="bg-white px-6 pt-12 pb-20">
                 <div className="mx-auto max-w-6xl">
                     <div className="mb-10 text-center">
                         <p className="text-xs uppercase tracking-[0.25em] text-gray-400">
@@ -227,6 +193,65 @@ export default function InstallationLandingPage() {
                 </div>
             </section>
 
+            {/* QUOTE FORM */}
+            <section id="quote" className="bg-black px-6 py-20 text-white">
+                <div className="mx-auto max-w-5xl">
+                    <div className="mx-auto max-w-2xl text-center">
+                        <p className="text-xs uppercase tracking-[0.25em] text-gray-500">
+                            Quick Quote Request
+                        </p>
+
+                        <h2 className="mt-4 text-3xl tracking-tight md:text-4xl">
+                            Tell Us What You Need Installed
+                        </h2>
+
+                        <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-gray-400">
+                            No measurements or photos required yet. Start with the basics and
+                            we&apos;ll contact you for the rest.
+                        </p>
+                    </div>
+
+                    <div className="mx-auto mt-10 max-w-xl">
+                        <InstallationLeadForm />
+                    </div>
+                </div>
+            </section>
+
+            {/* WHAT WE INSTALL */}
+            <section className="px-6 py-20">
+                <div className="mx-auto max-w-5xl">
+                    <div className="text-center">
+                        <p className="text-xs uppercase tracking-[0.25em] text-gray-400">
+                            What We Install
+                        </p>
+
+                        <h2 className="mt-4 text-3xl tracking-tight md:text-4xl">
+                            You Buy It. We Install It.
+                        </h2>
+
+                        <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-600 md:text-base">
+                            Skip the stress of installation. ZP Shades handles the mounting,
+                            alignment, and setup of your customer-provided window treatments.
+                        </p>
+                    </div>
+
+                    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        {services.map((service) => (
+                            <div
+                                key={service}
+                                className="group border border-[#E7DDCF] bg-[#FAF7F2] px-6 py-8 text-center transition duration-300 hover:-translate-y-1 hover:shadow-md"
+                            >
+                                <div className="mx-auto mb-4 h-px w-8 bg-[#A8864A]" />
+
+                                <p className="text-sm font-medium tracking-wide text-gray-900">
+                                    {service}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* WHY ZP SHADES */}
             <section className="bg-[#FAF7F2] px-6 py-14">
                 <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2 md:items-center">
@@ -276,7 +301,7 @@ export default function InstallationLandingPage() {
             </section>
 
             {/* SECOND CTA */}
-            <section className="px-6 py-16 text-center">
+            <section className="bg-[#FAF7F2] px-6 py-16 text-center">
                 <div className="mx-auto max-w-2xl">
                     <h2 className="text-2xl tracking-tight md:text-3xl">
                         Ready to Get Your Window Treatments Installed?
@@ -295,32 +320,6 @@ export default function InstallationLandingPage() {
                     </a>
                 </div>
             </section>
-
-            {/* QUOTE FORM */}
-            <section id="quote" className="bg-black px-6 py-20 text-white">
-                <div className="mx-auto max-w-5xl">
-                    <div className="mx-auto max-w-2xl text-center">
-                        <p className="text-xs uppercase tracking-[0.25em] text-gray-500">
-                            Quick Quote Request
-                        </p>
-
-                        <h2 className="mt-4 text-3xl tracking-tight md:text-4xl">
-                            Tell Us What You Need Installed
-                        </h2>
-
-                        <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-gray-400">
-                            No measurements or photos required yet. Start with the basics and
-                            we&apos;ll contact you for the rest.
-                        </p>
-                    </div>
-
-                    <div className="mx-auto mt-10 max-w-xl">
-                        <InstallationLeadForm />
-                    </div>
-                </div>
-            </section>
-
-
 
             {/* SERVICE AREAS */}
             <section className="px-6 py-12">
@@ -349,6 +348,7 @@ export default function InstallationLandingPage() {
                     </div>
                 </div>
             </section>
+
         </main>
     );
 }
