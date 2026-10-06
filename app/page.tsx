@@ -56,10 +56,9 @@ export const metadata: Metadata = {
 
   title: "Window Treatment Installation Seattle | ZP Shades",
 
-  description:
-    "Already purchased your window treatments? ZP Shades professionally installs shades, blinds, drapery, shutters, curtain tracks, and motorized systems across Seattle and the Puget Sound area.",
-
-  alternates: {
+ description:
+  "Already purchased your window treatments? ZP Shades professionally installs shades, cellular shades, blinds, drapery, shutters, curtain tracks, and motorized systems across Seattle and the Puget Sound area.",
+alternates: {
     canonical: "/",
   },
 
@@ -95,6 +94,7 @@ export default function Home() {
     areaServed: mainServiceAreas.map((area) => area.name),
     serviceType: [
       "Window shade installation",
+      "Cellular shade installation",
       "Blind installation",
       "Drapery installation",
       "Motorized shade installation",
@@ -137,7 +137,7 @@ export default function Home() {
 
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-gray-200 md:text-base">
               Already purchased your window treatments? We professionally
-              install shades, blinds, drapery, shutters, and motorized systems
+              install shades, cellular shades, blinds, drapery, shutters, and motorized systems
               throughout Seattle and the Puget Sound area.
             </p>
 
@@ -176,7 +176,7 @@ export default function Home() {
 
           <div className="grid gap-10 md:grid-cols-3">
             <article className="border-t border-gray-700 pt-6">
-              <h3 className="mb-3 text-lg font-semibold">Shades Installation</h3>
+              <h3 className="mb-3 text-lg font-semibold">Shades & Cellular Shades Installation</h3>
               <p className="text-sm leading-relaxed text-gray-400">
                 Roller, solar, blackout, zebra, cellular, Roman, and custom
                 shades. Professional installation for every window.

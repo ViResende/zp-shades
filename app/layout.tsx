@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "ZP Shades | Window Treatment Installation",
 
   description:
-    "Professional shade, blind, drapery, shutter, and motorized window treatment installation serving Seattle, Bellevue, and the Puget Sound area.",
+    "Professional shade, cellular shade, blind, drapery, shutter, and motorized window treatment installation serving Seattle, Bellevue, and the Puget Sound area.",
 };
 
 export default function RootLayout({
@@ -150,6 +150,7 @@ export default function RootLayout({
               },
               "service": [
                 "Shade Installation",
+                "Cellular Shade Installation",
                 "Drapery Installation",
                 "Motorized Shades Installation"
               ]
