@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     title: "Professional Window Treatment Installation | ZP Shades",
     description:
         "Professional installation for customer-provided shades, blinds, drapery, shutters, curtain tracks, and motorized window treatments in the Seattle area.",
+    alternates: {
+        canonical: "https://www.zpshades.com/installation",
+    },
     robots: {
         index: true,
         follow: true,
