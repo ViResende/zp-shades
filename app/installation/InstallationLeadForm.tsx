@@ -48,33 +48,48 @@ export default function InstallationLeadForm() {
           preferred_time: "Not collected yet",
           project_type: "Installation inquiry",
           photos: "No photos collected yet",
+
+          traffic_source:
+            sessionStorage.getItem("zp_traffic_source") || "Direct",
+          traffic_medium:
+            sessionStorage.getItem("zp_traffic_medium") || "none",
+          referrer:
+            sessionStorage.getItem("zp_referrer") || "",
+          landing_page:
+            sessionStorage.getItem("zp_landing_page") || window.location.href,
+          utm_source:
+            sessionStorage.getItem("zp_utm_source") || "",
+          utm_medium:
+            sessionStorage.getItem("zp_utm_medium") || "",
+          utm_campaign:
+            sessionStorage.getItem("zp_utm_campaign") || "",
         },
         PUBLIC_KEY
       );
 
       if (typeof window !== "undefined" && "gtag" in window) {
-  (
-    window as typeof window & {
-      gtag?: (...args: unknown[]) => void;
-    }
-  ).gtag?.("event", "booking_request_submitted", {
-    booking_type: "installation_landing_page",
-  });
-}
+        (
+          window as typeof window & {
+            gtag?: (...args: unknown[]) => void;
+          }
+        ).gtag?.("event", "booking_request_submitted", {
+          booking_type: "installation_landing_page",
+        });
+      }
 
-if (typeof window !== "undefined" && "oaiq" in window) {
-  (
-    window as typeof window & {
-      oaiq?: (...args: unknown[]) => void;
-    }
-  ).oaiq?.(
-    "measure",
-    "lead_created",
-    { type: "customer_action" }
-  );
-}
+      if (typeof window !== "undefined" && "oaiq" in window) {
+        (
+          window as typeof window & {
+            oaiq?: (...args: unknown[]) => void;
+          }
+        ).oaiq?.(
+          "measure",
+          "lead_created",
+          { type: "customer_action" }
+        );
+      }
 
-setSubmitted(true);
+      setSubmitted(true);
     } catch (error) {
       console.error("EmailJS error:", error);
       alert(
@@ -191,16 +206,16 @@ setSubmitted(true);
           className={`${inputClass} bg-black`}
         >
           <option value="" className="bg-white text-black">
-  Select
-</option>
-<option className="bg-white text-black">Shades</option>
-<option className="bg-white text-black">Blinds</option>
-<option className="bg-white text-black">Drapery / Curtains</option>
-<option className="bg-white text-black">Motorized Shades</option>
-<option className="bg-white text-black">Shutters</option>
-<option className="bg-white text-black">Curtain Rods / Tracks</option>
-<option className="bg-white text-black">Multiple Types</option>
-<option className="bg-white text-black">Other</option>
+            Select
+          </option>
+          <option className="bg-white text-black">Shades</option>
+          <option className="bg-white text-black">Blinds</option>
+          <option className="bg-white text-black">Drapery / Curtains</option>
+          <option className="bg-white text-black">Motorized Shades</option>
+          <option className="bg-white text-black">Shutters</option>
+          <option className="bg-white text-black">Curtain Rods / Tracks</option>
+          <option className="bg-white text-black">Multiple Types</option>
+          <option className="bg-white text-black">Other</option>
         </select>
       </div>
 
