@@ -42,14 +42,28 @@ export default function RootLayout({
 
 
 
+
+
 <Script id="google-analytics" strategy="afterInteractive">
   {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    // Google Analytics
     gtag('config', 'G-RF416DNCX9');
+
+    // Google Ads
+    gtag('config', 'AW-18456793345');
+
+    // Website phone call conversion tracking
+    gtag('config', 'AW-18456793345/XIMyCJv955odEIGi8eBE', {
+      'phone_conversion_number': '425-900-1524'
+    });
   `}
 </Script>
+
+
 
 <Script id="openai-ads-pixel" strategy="afterInteractive">
   {`
