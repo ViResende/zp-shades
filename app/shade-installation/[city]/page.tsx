@@ -44,7 +44,7 @@ const cities: Record<string, CityData> = {
       "Bellevue projects often include modern condos, offices, and larger residential properties. We focus on clean mounting, precise alignment, and reliable operation for both residential and commercial installations.",
     localHighlight:
       "If you already purchased your window treatments and need an experienced installer, ZP Shades provides installation support throughout Bellevue without the pressure to purchase new products.",
-   
+
   },
 
   redmond: {
@@ -61,7 +61,7 @@ const cities: Record<string, CityData> = {
       "From newer homes in Overlake to established neighborhoods around Education Hill, we provide clean, professional installation directly at your property.",
     localHighlight:
       "We help homeowners and businesses in Redmond install window treatments they already purchased, including single-room projects, whole-home installations, and motorized systems.",
-  
+
   },
 
   kirkland: {
@@ -78,7 +78,7 @@ const cities: Record<string, CityData> = {
       "Kirkland homes and businesses range from waterfront properties to modern developments around Totem Lake and established neighborhoods in Juanita. We bring the same attention to detail to every project.",
     localHighlight:
       "Our installation service is ideal for customers who already have their shades, blinds, drapery, shutters, or motorized systems and want them installed correctly and securely.",
-    
+
   },
 
   "mercer-island": {
@@ -95,7 +95,7 @@ const cities: Record<string, CityData> = {
       "Mercer Island properties often feature large windows and open views, making precise installation especially important. We install customer-provided window treatments with careful attention to alignment, mounting, privacy, and light control.",
     localHighlight:
       "Whether your project involves large roller shades, motorized systems, or custom drapery, we provide professional installation for homes throughout Mercer Island.",
-   
+
   },
 
   renton: {
@@ -112,7 +112,7 @@ const cities: Record<string, CityData> = {
       "We serve homes, apartments, rental properties, offices, and commercial spaces across Renton, including Kennydale, the Highlands, and surrounding neighborhoods.",
     localHighlight:
       "Already purchased your shades, blinds, drapery, shutters, or motorized systems? We handle the installation so you do not have to manage complicated mounting or alignment yourself.",
-  
+
   },
 
   tacoma: {
@@ -129,7 +129,7 @@ const cities: Record<string, CityData> = {
       "Tacoma includes historic homes, craftsman properties, apartments, offices, and newer developments. We adjust our installation approach based on the property, mounting surface, and type of window treatment.",
     localHighlight:
       "Our goal is a clean, secure installation that looks professional and operates correctly, whether you are installing a single window treatment or completing a larger project.",
-   
+
   },
 
   "bainbridge-island": {
@@ -145,7 +145,7 @@ const cities: Record<string, CityData> = {
       "Island homes often feature large windows, natural light, and scenic views. We install customer-provided shades, drapery, shutters, and motorized systems with attention to light control, privacy, and proper mounting.",
     localHighlight:
       "We travel to Bainbridge Island for residential and larger installation projects, helping customers complete their window treatments without needing to purchase new products through an installation company.",
-    
+
   },
 
   issaquah: {
@@ -162,7 +162,7 @@ const cities: Record<string, CityData> = {
       "From newer homes in Talus to established properties around Downtown Issaquah and Squak Mountain, we install customer-provided window treatments with precise mounting and a clean finish.",
     localHighlight:
       "Our installation-only service is ideal if you already purchased your shades, blinds, drapery, shutters, or motorized system and want a professional to complete the project.",
- 
+
   },
 
   "north-bend": {
@@ -179,7 +179,7 @@ const cities: Record<string, CityData> = {
       "North Bend homes often feature large windows designed to take advantage of mountain views and natural light. We install window treatments carefully so they operate smoothly while maintaining a clean, finished appearance.",
     localHighlight:
       "We install customer-provided roller shades, blackout shades, solar shades, drapery, blinds, and motorized systems for homes throughout North Bend and surrounding communities.",
-    
+
   },
 
   sammamish: {
@@ -195,7 +195,7 @@ const cities: Record<string, CityData> = {
       "Sammamish includes newer construction, larger residential properties, and established neighborhoods around the lake and plateau. We provide precise installation for a wide range of window treatment systems.",
     localHighlight:
       "Whether your project involves a few windows or a full-home installation, we provide dependable service for customer-provided window treatments throughout Sammamish.",
-  
+
   },
 
   puyallup: {
@@ -211,7 +211,7 @@ const cities: Record<string, CityData> = {
       "We serve residential homes, apartments, rental properties, and commercial spaces throughout Puyallup, South Hill, and surrounding neighborhoods.",
     localHighlight:
       "If you have already purchased your window treatments, we can handle the installation from there, including shades, blinds, drapery, shutters, and motorized systems.",
-   
+
   },
 };
 
@@ -245,7 +245,7 @@ export async function generateMetadata({
   const canonicalUrl = `https://www.zpshades.com/shade-installation/${citySlug}`;
 
   return {
-    title: `Shade & Window Treatment Installation in ${city.name}, WA | ZP Shades`,
+    title: `Blinds, Shades & Drapery Installation in ${city.name}, WA | ZP Shades`,
     description: `Professional installation for customer-provided shades, blinds, drapery, shutters, and motorized systems in ${city.name}, WA. Book installation with ZP Shades.`,
     alternates: {
       canonical: canonicalUrl,
@@ -281,7 +281,7 @@ export default async function CityPage({
           </p>
 
           <h1 className="mb-5 max-w-3xl text-4xl tracking-wide md:text-5xl">
-            Professional Window Treatment Installation in {city.name}
+            Blinds, Shades & Drapery Installation in {city.name}
           </h1>
 
           <p className="max-w-2xl text-sm leading-relaxed text-gray-400">
@@ -316,7 +316,7 @@ export default async function CityPage({
               </p>
 
               <h2 className="mb-6 text-3xl tracking-wide">
-                Shade & Window Treatment Installation in {city.name}
+                Professional Window Treatment Installation in {city.name}
               </h2>
 
               <p className="mb-5 text-sm leading-relaxed text-gray-600">
@@ -374,20 +374,20 @@ export default async function CityPage({
         </section>
 
         {/* Service Areas */}
-<section className="border-t border-gray-100 px-6 py-10">
-  <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-    <p className="text-sm text-gray-600">
-      Serving {city.name} and communities throughout the Puget Sound area.
-    </p>
+        <section className="border-t border-gray-100 px-6 py-10">
+          <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-gray-600">
+              Serving {city.name} and communities throughout the Puget Sound area.
+            </p>
 
-    <Link
-      href="/service-areas"
-      className="text-xs uppercase tracking-widest transition-opacity hover:opacity-60"
-    >
-      View All Service Areas →
-    </Link>
-  </div>
-</section>
+            <Link
+              href="/service-areas"
+              className="text-xs uppercase tracking-widest transition-opacity hover:opacity-60"
+            >
+              View All Service Areas →
+            </Link>
+          </div>
+        </section>
 
 
         {/* CTA */}
