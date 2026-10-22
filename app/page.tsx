@@ -1,3 +1,4 @@
+import BrandCarousel from "./components/BrandCarousel";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,6 +29,8 @@ const brands = [
   { name: "Costco", image: "/images/brands/costco.svg" },
   { name: "IKEA", image: "/images/brands/ikea.svg" },
   { name: "The Shade Store", image: "/images/brands/theshadestore.svg" },
+  { name: "TWOPAGES", image: "/images/brands/twopages.svg" },
+{ name: "Everhem", image: "/images/brands/everhem.svg" },
 ];
 
 const testimonials = [
@@ -231,31 +234,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="brand-marquee">
-            <div className="brand-marquee-track">
-              {[...brands, ...brands].map((brand, index) => (
-                <div
-                  key={`${brand.name}-${index}`}
-                  className="brand-logo-card"
-                  aria-hidden={index >= brands.length}
-                >
-<Image
-  src={brand.image}
-  alt={index < brands.length ? `${brand.name} logo` : ""}
-  width={150}
-  height={70}
-  className={`w-auto object-contain opacity-100 transition-all duration-300 ${
-    brand.name === "Blinds.com"
-      ? "h-24"
-      : brand.name === "SelectBlinds" || brand.name === "The Shade Store"
-      ? "h-16"
-      : "h-10"
-  }`}
-/>
-                </div>
-              ))}
-            </div>
-          </div>
+        <BrandCarousel brands={brands} />
 
           <p className="mt-8 px-6 text-center text-xs text-gray-500">
             Brand names are shown only to identify products we install. ZP

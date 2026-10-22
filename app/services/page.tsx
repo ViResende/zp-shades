@@ -1,14 +1,14 @@
+
 import Image from "next/image";
 import Link from "next/link";
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Window Treatment Installation Services Seattle — ZP Shades",
-  description: "Professional installation for roller shades, zebra shades, solar shades, shutters, blinds, motorized systems, drapery, and curtain rods across Seattle and the Puget Sound area.",
-
-   alternates: {
-    canonical: "/services",
+  title: "Blinds, Shades & Drapery Installation Services | ZP Shades",
+  description:
+    "Professional installation of blinds, shades, shutters, drapery, curtain rods, and motorized window treatments throughout Seattle and the Puget Sound area.",
+  alternates: {
+    canonical: "https://www.zpshades.com/services",
   },
 };
 
@@ -51,7 +51,7 @@ const products = [
   {
     title: "Motorized Shades",
     image: "/images/motorized-shades.webp",
-    alt: "Smart home app controlling motorized shades",
+    alt: "Motorized shades with smart controls",
   },
   {
     title: "Drapery",
@@ -61,94 +61,179 @@ const products = [
   {
     title: "Curtain Rods & Tracks",
     image: "/images/curtains-rods-tracks.webp",
-    alt: "Ceiling-mounted curtain track with white panels",
+    alt: "Ceiling-mounted curtain tracks with drapery",
   },
   {
     title: "Smart Home Integration",
     image: "/images/smartintegration.webp",
-    alt: "Smart home app showing shade controls",
+    alt: "Smart home window shade controls",
   },
   {
     title: "Professional Measurement & Consultation",
     image: "/images/consultation.webp",
-    alt: "Professional window measurement and shade consultation",
+    alt: "Professional window measurement and consultation",
   },
 ];
 
 export default function Services() {
   return (
-    <div>
-      {/* Dark hero header */}
-      <div className="bg-black text-white py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">
-            ZP Shades
+    <main className="bg-white text-[#171717]">
+      {/* Hero */}
+      <section className="bg-[#F5F3EF]">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[#A8864A]">
+            ZP SHADES / OUR SERVICES
           </p>
-          <h1 className="text-4xl tracking-wide mb-4">Products We Install</h1>
-          <p className="text-gray-400 max-w-md">
-            Already have your shades or drapes? We handle the installation.
-            Professional, clean, and done right.
+
+          <h1 className="mb-5 max-w-3xl text-3xl font-medium leading-tight sm:text-4xl">
+            Blinds, Shades & Drapery Installation
+          </h1>
+
+          <p className="max-w-2xl text-sm leading-relaxed text-[#59616A]">
+            Already purchased your window treatments? ZP Shades
+            provides professional installation for blinds, shades,
+            drapery, shutters, curtain tracks, and motorized systems
+            throughout Seattle and the Puget Sound area.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/book"
-              className="inline-block bg-white text-black px-8 py-3 text-xs tracking-widest uppercase hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center bg-black px-7 py-4 text-xs uppercase tracking-wider text-white transition-colors hover:bg-[#333]"
             >
               Book Installation
             </Link>
+
             <Link
               href="/book"
-              className="inline-block border border-white text-white px-8 py-3 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
+              className="inline-flex items-center justify-center border border-black px-7 py-4 text-xs uppercase tracking-wider text-black transition-colors hover:bg-white"
             >
               Book Consultation — $99
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Products grid */}
-      <main className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+      {/* Services */}
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mb-10">
+          <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#A8864A]">
+            WHAT WE INSTALL
+          </p>
+
+          <h2 className="mb-4 text-2xl font-medium sm:text-3xl">
+            Our Installation Services
+          </h2>
+
+          <p className="max-w-2xl text-sm leading-relaxed text-[#59616A]">
+            From standard blinds to custom drapery and smart shades,
+            we install customer-provided window treatments with
+            attention to detail and a clean finish.
+          </p>
+        </div>
+
+        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <div key={product.title} className="group">
-              <div className="relative w-full h-64 overflow-hidden bg-gray-100">
+            <article
+              key={product.title}
+              className="group border border-[#E6E6E6] bg-white"
+            >
+              <div className="relative h-60 overflow-hidden bg-[#F3F3F3]">
                 <Image
                   src={product.image}
                   alt={product.alt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="mt-4 flex items-center justify-between">
-                <h2 className="text-sm font-semibold tracking-wide">
-  {product.title}
-</h2>
-                {product.title === "Professional Measurement & Consultation" && (
-                  <span className="text-xs bg-black text-white px-3 py-1">
+
+              <div className="flex min-h-20 items-center justify-between gap-3 px-5 py-5">
+                <h3 className="text-base font-medium">
+                  {product.title}
+                </h3>
+
+                {product.title ===
+                "Professional Measurement & Consultation" ? (
+                  <span className="shrink-0 text-sm text-[#A8864A]">
                     $99
                   </span>
-                )}
+                ) : null}
               </div>
-            </div>
+            </article>
           ))}
         </div>
+      </section>
 
-        {/* Bottom CTA */}
-        <div className="mt-20 border-t border-gray-200 pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      {/* Installation explanation */}
+      <section className="bg-[#E1ECF1]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:px-8 md:grid-cols-2 md:items-center">
           <div>
-            <h2 className="text-2xl tracking-wide mb-2">Ready to get started?</h2>
-            <p className="text-gray-500 text-sm">
-              Book your installation or schedule a consultation today.
+            <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#58707C]">
+              HOW WE WORK
+            </p>
+
+            <h2 className="mb-4 text-2xl font-medium sm:text-3xl">
+              You choose the products.
+              <span className="block">We handle the installation.</span>
+            </h2>
+          </div>
+
+          <div>
+            <p className="text-sm leading-relaxed text-[#495864]">
+              ZP Shades is an independent installation company.
+              We install products purchased from retailers, designers,
+              and manufacturers. Whether you need one window
+              completed or an entire property, our focus is
+              professional installation rather than product sales.
+            </p>
+
+            <Link
+              href="/book"
+              className="mt-6 inline-block border-b border-black pb-1 text-xs uppercase tracking-wider"
+            >
+              Request a Quote →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="bg-[#F5F3EF]">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-6 px-5 py-16 sm:px-8 md:flex-row md:items-center">
+          <div className="max-w-xl">
+            <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#A8864A]">
+              READY TO GET STARTED?
+            </p>
+
+            <h2 className="mb-3 text-2xl font-medium">
+              Your products are ready. Let us handle the installation.
+            </h2>
+
+            <p className="text-sm leading-relaxed text-[#59616A]">
+              Tell us what you purchased, how many windows you have,
+              and where your project is located.
             </p>
           </div>
-          <Link
-            href="/book"
-            className="shrink-0 inline-block bg-black text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-gray-900 transition-colors"
-          >
-            Book a Service
-          </Link>
+
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/book"
+              className="inline-flex items-center justify-center bg-black px-7 py-4 text-xs uppercase tracking-wider text-white hover:bg-[#333]"
+            >
+              Book Installation
+            </Link>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center border border-black px-7 py-4 text-xs uppercase tracking-wider text-black hover:bg-white"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
+
