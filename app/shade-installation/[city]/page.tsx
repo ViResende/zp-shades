@@ -216,16 +216,16 @@ const cities: Record<string, CityData> = {
 };
 
 const services = [
-  "Roller Shades",
-  "Zebra Shades",
-  "Solar Shades",
-  "Cellular Shades",
-  "Roman Shades",
-  "Blinds",
-  "Motorized Systems",
-  "Drapery & Curtains",
-  "Shutters",
-  "Curtain Rods & Tracks",
+"Roller Shade Installation",
+"Zebra Shade Installation",
+"Solar Shade Installation",
+"Cellular Shade Installation",
+"Roman Shade Installation",
+"Blinds Installation",
+"Shutter Installation",
+"Motorized Shade Installation",
+"Drapery Installation",
+"Curtain Rod & Track Installation",
 ];
 
 export async function generateStaticParams() {

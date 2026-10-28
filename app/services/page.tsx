@@ -14,52 +14,52 @@ export const metadata: Metadata = {
 
 const products = [
   {
-    title: "Roller Shades",
+    title: "Roller Shade Installation",
     image: "/images/roller-shades.webp",
     alt: "Roller shades in a modern living room",
   },
   {
-    title: "Zebra Shades",
+    title: "Zebra Shade Installation",
     image: "/images/zebra-shades.webp",
     alt: "Zebra shades in a modern dining room",
   },
   {
-    title: "Roman Shades",
+    title: "Roman Shade Installation",
     image: "/images/roman-shades.webp",
     alt: "Roman shades in a bay window",
   },
   {
-    title: "Cellular Shades",
+    title: "Cellular Shade Installation",
     image: "/images/cellular-shades.webp",
     alt: "Cellular honeycomb shades on a window",
   },
   {
-    title: "Solar Shades",
+    title: "Solar Shade Installation",
     image: "/images/sollar-shades.webp",
     alt: "Solar shades on large windows",
   },
   {
-    title: "Shutters",
+    title: "Shutter Installation",
     image: "/images/shutters-shades.webp",
     alt: "White plantation shutters in a living room",
   },
   {
-    title: "Blinds",
+    title: "Blind Installation",
     image: "/images/blinds-shades.webp",
     alt: "Wood venetian blinds in a living room",
   },
   {
-    title: "Motorized Shades",
+    title: "Motorized Shade Installation",
     image: "/images/motorized-shades.webp",
     alt: "Motorized shades with smart controls",
   },
   {
-    title: "Drapery",
+    title: "Drapery Installation",
     image: "/images/drapery-shades.webp",
     alt: "Floor-to-ceiling drapery panels",
   },
   {
-    title: "Curtain Rods & Tracks",
+    title: "Curtain Rod & Track Installation",
     image: "/images/curtains-rods-tracks.webp",
     alt: "Ceiling-mounted curtain tracks with drapery",
   },
